@@ -14,14 +14,26 @@ export const useCurrentDayDataByCountry = (country = 'Total') => {
         const result = await axios.get(
           `https://api.covid19tracking.narrativa.com/api/${date}/country/${country}`
         );
-        console.log(result);
-        setResponse([
-          result.data.total.today_confirmed,
-          result.data.total.today_recovered,
-          result.data.total.today_deaths,
-          result.data.updated_at,
-          result.data.total.source,
-        ]);
+        if (country === 'Total') {
+          setResponse([
+            result.data.total.today_confirmed,
+            result.data.total.today_recovered,
+            result.data.total.today_deaths,
+            result.data.updated_at,
+            result.data.total.source,
+          ]);
+        } else {
+          var resultObj = Object.values(
+            Object.values(Object.values(result.data.dates))[0].countries
+          );
+          setResponse([
+            resultObj[0].today_confirmed,
+            resultObj[0].today_deaths,
+            resultObj[0].today_recovered,
+            resultObj[0].date,
+            resultObj[0].source,
+          ]);
+        }
       } catch (error) {
         setError(error);
       } finally {
