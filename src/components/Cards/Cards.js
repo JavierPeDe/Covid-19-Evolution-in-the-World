@@ -1,15 +1,14 @@
 import React from "react";
-import useCurrentDayDataByCountry from "../../hooks";
+import {useCurrentDayDataByCountry} from "../../hooks";
 import DataResponse from "../DataContent/Data";
 //import styles from "../../App.module.css";
 
 const Cards = () => {
-    const { response, loading, error } = useCurrentDayDataByCountry();
+    const { response, loading, error } = useCurrentDayDataByCountry('Germany');
+    console.log(response)
     return (
         <div>
-            {response.map((response, index) => <DataResponse key={index} value={response} />)}
-            {loading}
-            {error}
+           <DataResponse value={loading?[0,0,0,'','']:response} />
         </div>
     )
 }
