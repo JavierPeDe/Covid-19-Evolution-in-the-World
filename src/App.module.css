@@ -1,7 +1,23 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main {
+    text-align: center;
+}
 
 .container {
  display: flex;
- align-items: center;
- justify-content: center;
+ align-items: flex-end;
+ justify-content: flex-end;
 }
+

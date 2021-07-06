@@ -26,7 +26,6 @@ const useCurrentDayDataByCountry = (country) => {
     callApi();
   }, [country]);
 
-  console.log(response)
   return { response, loading, error }
 };
 
