@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import moment from 'moment';
 export const useCurrentDayDataByCountry = (country = 'Total') => {
   const [response, setResponse] = useState(undefined);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    var d = new Date();
-    const date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+    var date = moment().format('YYYY-MM-DD');
     const callApi = async () => {
       try {
         const result = await axios.get(
@@ -43,5 +42,48 @@ export const useCurrentDayDataByCountry = (country = 'Total') => {
     callApi();
   }, [country]);
 
+  return { response, error, loading };
+};
+
+export const useDataByDateRangeByCountry = (country = 'spain') => {
+  const [response, setResponse] = useState(undefined);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    var finalDate = moment().format('YYYY-MM-DD');
+    var initialDate = moment().subtract(1, 'month').format('YYYY-MM-DD');
+
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(
+          `https://api.covid19tracking.narrativa.com/api/country/${country}?date_from=${initialDate}&date_to=${finalDate}`
+        );
+        var mapResult = Object.values(result.data.dates);
+        var infecteds = mapResult.map((data) => {
+          return Object.values(data.countries)[0].today_open_cases;
+        });
+        var deaths = mapResult.map((data) => {
+          return Object.values(data.countries)[0].today_deaths;
+        });
+        var recovery = mapResult.map((data) => {
+          return Object.values(data.countries)[0].today_new_recovered;
+        });
+
+        setResponse({
+          infected: infecteds,
+          deaths: deaths,
+          recovery: recovery,
+          dates: Object.keys(result.data.dates),
+          source: result.data.metadata.by,
+        });
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [country]);
   return { response, error, loading };
 };
