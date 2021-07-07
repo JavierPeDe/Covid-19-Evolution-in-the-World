@@ -1,9 +1,14 @@
 import React from 'react';
+import Cards from "./components/Cards/Cards";
+import styles from "./App.module.css";
 
 export const App = () => {
   return (
-    <div>
-      <h2>App</h2>
+    <div className={styles.main}>
+      <h1>Covid 19</h1>
+      <div className={styles.container}>
+        <Cards />
+      </div>
     </div>
   );
 };

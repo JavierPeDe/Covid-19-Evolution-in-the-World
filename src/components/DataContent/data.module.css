@@ -1,0 +1,35 @@
+.box {
+    margin: 30px 0;
+}
+
+.grid {
+    margin-bottom: 2% !important;
+    margin-right: 5rem !important;
+}
+
+.colorGreen {
+    color: #4AA96C;
+    transition: color 0.3s ease-in;
+}
+
+.colorRed {
+    color: #D83A56;
+    transition: color 0.3s ease-in;
+}
+
+.colorBlack {
+    color: #5B5656;
+    transition: color 0.3s ease-in;
+}
+
+.colorGreen:hover{
+    color: #1E6F5C;
+}
+
+.colorRed:hover {
+    color: #8F1537;
+}
+
+.colorBlack:hover {
+ color: #000;
+}
