@@ -25,6 +25,7 @@ export const useCurrentDayDataByCountry = (country = 'Total') => {
           var resultObj = Object.values(
             Object.values(Object.values(result.data.dates))[0].countries
           );
+          console.log(resultObj);
           setResponse([
             resultObj[0].today_confirmed,
             resultObj[0].today_deaths,
