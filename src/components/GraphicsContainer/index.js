@@ -1,9 +1,9 @@
 import React from 'react';
 import { LineChart } from './LineChart';
-import { useDataByDateRangeByCountry } from '../../hooks';
+import { useDataByCountry, useDataByDateRangeByCountry } from '../../hooks';
 export const GraphicsContainer = ({ country }) => {
-  const { responseRange, error, loading } = useDataByDateRangeByCountry(country);
-  
+  const { responseRange, error, loading } = useDataByCountry('ES');
+
   return (
     <div>
       <div>
