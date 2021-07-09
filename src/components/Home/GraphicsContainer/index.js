@@ -1,10 +1,8 @@
 import React from 'react';
 import { LineChart } from './LineChart';
-import { useDataByCountry, useDataByDateRangeByCountry } from '../../hooks';
-import imgLoading from '../../assets/img/careers-loading.gif';
+import imgLoading from '../../../assets/img/careers-loading.gif';
 import style from './index.module.css';
-export const GraphicsContainer = ({ country }) => {
-  const { responseRange, error, loading } = useDataByCountry('DE');
+export const GraphicsContainer = ({ responseRange, loading }) => {
 
   return (
     <div className={style.graphicContainer}>
@@ -14,7 +12,7 @@ export const GraphicsContainer = ({ country }) => {
           <img src={imgLoading} />
         ) : (
           <LineChart
-            className=""
+           
             infected={responseRange.infected}
             deaths={responseRange.deaths}
             recovered={responseRange.recovery}

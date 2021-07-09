@@ -158,7 +158,6 @@ export const useDataByCountry = (country = 'ES') => {
         var dates = res.map((data) => {
           return data.date;
         });
-        console.log(result);
         setResponseRange({
           infected: infecteds.slice().reverse(),
           deaths: deaths.slice().reverse(),
