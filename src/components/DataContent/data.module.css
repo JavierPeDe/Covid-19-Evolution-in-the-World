@@ -1,14 +1,20 @@
 .box {
     margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.grid {
-    margin-bottom: 2% !important;
-    margin-right: 5rem !important;
+.grid1 {
+    margin: 2% 0 !important;
+}
+
+.box1 {
+    width: 55%;
 }
 
 .colorGreen {
-    color: #4AA96C;
+    color: #4aa96c;
     transition: color 0.3s ease-in;
 }
 
@@ -32,4 +38,12 @@
 
 .colorBlack:hover {
  color: #000;
+}
+
+.formControl {
+    width: 100px;
+}
+
+.formGroup {
+    width: 100px;
 }
