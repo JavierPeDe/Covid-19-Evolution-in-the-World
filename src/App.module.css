@@ -15,5 +15,7 @@ html, body {
     text-align: center;
 }
 
-
+.container {
+background: ghostwhite;
+}
 
