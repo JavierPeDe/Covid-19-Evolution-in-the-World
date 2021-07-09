@@ -6,7 +6,6 @@ import { Doughnut } from "react-chartjs-2";
 
 const DataResponse = (props) => {
     const [chartData, setChartData] = useState({});
-
     useEffect(() => {
         const chart = () => {
             const infectedPercentage = Math.round(((props.value[0] - props.value[1] - props.value[2]) / props.value[0]) * 100);

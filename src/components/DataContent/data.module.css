@@ -39,3 +39,11 @@
 .colorBlack:hover {
  color: #000;
 }
+
+.formControl {
+    width: 100px;
+}
+
+.formGroup {
+    width: 100px;
+}
