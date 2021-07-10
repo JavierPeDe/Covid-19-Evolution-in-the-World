@@ -135,7 +135,7 @@ export const useDataByCountry = (country = 'ES') => {
         ]);
         var res = result.data.data.timeline;
         var infecteds = res.map((data) => {
-          return data.active;
+          return data.confirmed;
         });
         var deaths = res.map((data) => {
           return data.deaths;

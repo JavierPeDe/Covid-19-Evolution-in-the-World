@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 
-export const CountryPicker = () => {
+export const CountryPicker = ({handleInputChange}) => {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
@@ -19,8 +19,9 @@ export const CountryPicker = () => {
         <div>
             <div className="">
                 <select name="countries" style={{ width: "200px" }} onChange={(e) => {
-                    console.log(e.target.value)
+                    handleInputChange(e)
                 }}>
+                     <option hidden selected disabled value='ES'>Spain</option>
                     {countries.map((country, i) => (
                         <option key={i} value={country.code}>{country.name}</option>
                     ))}

@@ -10,7 +10,8 @@
 }
 
 .box1 {
-    width: 55%;
+    width: 100%;
+    max-width: 400px;
 }
 
 .colorGreen {
