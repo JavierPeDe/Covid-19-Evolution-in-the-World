@@ -4,15 +4,21 @@ import styles from './data.module.css';
 import CountUp from 'react-countup';
 import { Doughnut } from 'react-chartjs-2';
 
-export const DataResponse = ({ value }) => {
+export const DataResponse = ({
+  confirmed,
+  deaths,
+  recovered,
+  date,
+  source,
+}) => {
   const [chartData, setChartData] = useState({});
   useEffect(() => {
     const chart = () => {
       const infectedPercentage = Math.round(
-        ((value[0] - value[1] - value[2]) / value[0]) * 100
+        ((confirmed - deaths - recovered) / confirmed) * 100
       );
-      const recoveredPercentage = Math.round((value[2] / value[0]) * 100);
-      const deathPercentage = Math.round((value[1] / value[0]) * 100);
+      const recoveredPercentage = Math.round((recovered / confirmed) * 100);
+      const deathPercentage = Math.round((deaths / confirmed) * 100);
       setChartData({
         labels: [`Currently infected %`, `Recovered %`, `Deaths %`],
         datasets: [
@@ -35,7 +41,7 @@ export const DataResponse = ({ value }) => {
       });
     };
     chart();
-  }, [value]);
+  }, [confirmed, deaths, recovered, date, source]);
   return (
     <React.Fragment>
       <div className={styles}>
@@ -55,13 +61,13 @@ export const DataResponse = ({ value }) => {
               <Typography variant="h5" className={styles.colorRed}>
                 <CountUp
                   start={0}
-                  end={value[0]}
+                  end={confirmed}
                   duration={2.8}
                   separator=","
                 />
               </Typography>
-              <Typography color="textSecondary">{value[3]}</Typography>
-              <Typography variant="body2">{value[4]}</Typography>
+              <Typography color="textSecondary">{date}</Typography>
+              <Typography variant="body2">{source}</Typography>
             </CardContent>
           </Grid>
           <Grid item component={Card} xs={12} md={3} className={styles.grid}>
@@ -72,13 +78,13 @@ export const DataResponse = ({ value }) => {
               <Typography variant="h5" className={styles.colorGreen}>
                 <CountUp
                   start={0}
-                  end={value[2]}
+                  end={recovered}
                   duration={2.8}
                   separator=","
                 />
               </Typography>
-              <Typography color="textSecondary">{value[3]}</Typography>
-              <Typography variant="body2">{value[4]}</Typography>
+              <Typography color="textSecondary">{date}</Typography>
+              <Typography variant="body2">{source}</Typography>
             </CardContent>
           </Grid>
           <Grid item component={Card} xs={12} md={3} className={styles.grid}>
@@ -87,15 +93,10 @@ export const DataResponse = ({ value }) => {
                 Deaths
               </Typography>
               <Typography variant="h5" className={styles.colorBlack}>
-                <CountUp
-                  start={0}
-                  end={value[1]}
-                  duration={2.8}
-                  separator=","
-                />
+                <CountUp start={0} end={deaths} duration={2.8} separator="," />
               </Typography>
-              <Typography color="textSecondary">{value[3]}</Typography>
-              <Typography variant="body2">{value[4]}</Typography>
+              <Typography color="textSecondary">{date}</Typography>
+              <Typography variant="body2">{source}</Typography>
             </CardContent>
           </Grid>
         </Grid>

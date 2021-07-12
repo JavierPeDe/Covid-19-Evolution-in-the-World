@@ -126,13 +126,13 @@ export const useDataByCountry = (country = 'ES') => {
           `https://corona-api.com/countries/${country}`
         );
 
-        setResponse([
-          result.data.data.latest_data.confirmed,
-          result.data.data.latest_data.deaths,
-          result.data.data.latest_data.recovered,
-          moment(result.data.data.updated_at).format('YYYY-MM-DD'),
-          'World Health Organization',
-        ]);
+        setResponse({
+          confirmed:result.data.data.latest_data.confirmed,
+          deaths:result.data.data.latest_data.deaths,
+          recovered:result.data.data.latest_data.recovered,
+          date:moment(result.data.data.updated_at).format('YYYY-MM-DD'),
+          source:'World Health Organization',}
+        );
         var res = result.data.data.timeline;
         var infecteds = res.map((data) => {
           return data.confirmed;
