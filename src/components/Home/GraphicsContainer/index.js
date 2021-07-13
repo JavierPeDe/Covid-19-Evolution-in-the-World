@@ -7,9 +7,9 @@ export const GraphicsContainer = ({ responseRange, loading }) => {
   return (
     <div className={style.graphicContainer}>
       <div className={style.graphic}>
-        <h1> Graphic asdlfkhnsaldkfhj</h1>
+        <h1> Evolution of total cases </h1>
         {loading ? (
-          <img src={imgLoading} />
+          <img src={imgLoading} alt='LOADING'/>
         ) : (
           <LineChart
            
@@ -17,19 +17,21 @@ export const GraphicsContainer = ({ responseRange, loading }) => {
             deaths={responseRange.deaths}
             recovered={responseRange.recovery}
             dates={responseRange.dates}
+            source={responseRange.source}
           />
         )}
       </div>
       <div className={style.graphic}>
-        <h1>Graphic oasdhfopajshdgplo</h1>
+        <h1>Confirmed cases per day</h1>
         {loading ? (
-          <img src={imgLoading} />
+          <img src={imgLoading} alt='LOADING' />
         ) : (
           <LineChart
             infected={responseRange.newInfected}
             deaths={responseRange.newDeaths}
             recovered={responseRange.newRecovered}
             dates={responseRange.dates}
+            source={responseRange.source}
           />
         )}
       </div>

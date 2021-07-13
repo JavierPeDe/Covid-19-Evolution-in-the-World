@@ -1,0 +1,11 @@
+.container{
+    margin: 20px;
+    position: relative;
+}
+.iconStyle{
+    
+    position:absolute;
+    top:0;
+    right:0;
+    cursor: pointer;
+}
