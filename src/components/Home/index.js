@@ -4,14 +4,15 @@ import { CountryPicker } from './CountryPicker'
 import { useDataByCountry } from '../../hooks'
 import { GraphicsContainer } from './GraphicsContainer'
 import { DataResponse } from './DataResponse'
-export const Home = () =>{
+export const Home = () => {
     const [country, setCountry] = useState()
-    const handleInputChange = evt =>{
+
+    const handleInputChange = evt => {
         setCountry(evt.target.value)
-        
+        //console.log(evt.target.value)
     }
-    const {response, responseRange,  loading } =useDataByCountry(country)
-    console.log(response)
+
+    const { response, responseRange, loading } = useDataByCountry(country)
     return (
         <div>
             <CountryPicker handleInputChange={handleInputChange} />
