@@ -7,12 +7,13 @@ import { DataResponse } from './DataResponse'
 import imgLoading from '../../assets/img/careers-loading.gif'
 export const Home = () =>{
     const [country, setCountry] = useState()
-    const handleInputChange = evt =>{
+
+    const handleInputChange = evt => {
         setCountry(evt.target.value)
-        
+       
     }
-    const {response, responseRange,  loading } =useDataByCountry(country)
-    console.log(response)
+
+    const { response, responseRange, loading } = useDataByCountry(country)
     return (
         <div>
             <CountryPicker handleInputChange={handleInputChange} />
