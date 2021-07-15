@@ -1,33 +1,36 @@
 import { Paper, Switch } from '@material-ui/core';
 import React, { useState } from 'react';
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import style from './index.module.css';
 import johnsImg from '../../assets/img/JohnsLogo.png';
 import woldImg from '../../assets/img/WorldLogo.svg';
 import WarningIcon from '@material-ui/icons/Warning';
+import { useEffect } from 'react';
 
-export const Info = () => {
-  const [dark, setDark] = useState(false);
-
+export const Info = ({ isDark }) => {
+  const [dark, setDark] = useState(isDark);
+  useEffect(() => {
+    setDark(isDark);
+  }, [isDark]);
   const theme = createMuiTheme({
     palette: {
       //type: dark ? 'dark' : 'light',
       background: {
         paper: dark ? '#f57c00' : '#ffb74d',
-      }
+      },
     },
-  })
+  });
   return (
     <div>
       <ThemeProvider theme={theme}>
         <Paper height="100vh">
-          <Switch checked={dark} onChange={() => setDark(!dark)} />
           <h1>Covid-19 Evolution in the world</h1>
           <h2>
-            Covid-19 information from trusted sources via API <i>about-corona</i>
+            Covid-19 information from trusted sources via API{' '}
+            <i>about-corona</i>
           </h2>
           <h2>Our Data Sources</h2>
-          <div className={style.containerSources} background="primary">
+          <div className={style.containerSources} background="secondary">
             <div>
               <h3>World Health Organization Situation Reports</h3>
               <p>
@@ -90,7 +93,8 @@ export const Info = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  National Health Commission of the People’s Republic of China (NHC)
+                  National Health Commission of the People’s Republic of China
+                  (NHC)
                 </a>{' '}
                 <br />
                 <a
@@ -116,21 +120,21 @@ export const Info = () => {
               <WarningIcon />
               Warning: the data provided and used for the generation of these
               products comes from the aggregation of different sources, each of
-              which with different update times and frequencies. Additionally, each
-              country has its own accounting criteria, so comparisons of data
-              between countries or regions, and even within them over time, may not
-              be representative of reality. An example is the case of positive cases
-              that depend not only on the spread of the disease but also on the
-              number of tests that are carried out.
+              which with different update times and frequencies. Additionally,
+              each country has its own accounting criteria, so comparisons of
+              data between countries or regions, and even within them over time,
+              may not be representative of reality. An example is the case of
+              positive cases that depend not only on the spread of the disease
+              but also on the number of tests that are carried out.
             </p>
-            <p >
+            <p>
               <WarningIcon />
-              The content of this website as well as data provided by related API's
-              is aggregated from multiple sources and given without guarantee to be
-              correct. All information provided on this website is given with the
-              best intent and will to provide factual information. In no event shall
-              the website operators be held liable for any claim, damages or other
-              liabilities.
+              The content of this website as well as data provided by related
+              API's is aggregated from multiple sources and given without
+              guarantee to be correct. All information provided on this website
+              is given with the best intent and will to provide factual
+              information. In no event shall the website operators be held
+              liable for any claim, damages or other liabilities.
             </p>
           </div>
         </Paper>
