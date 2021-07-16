@@ -1,14 +1,30 @@
-
-
-.containerSources{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
+.infoContainer {
+  height: 93vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
-.imgJohns{
-    max-width: 50%;
+
+.containerSources {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 }
-.imgWorld{
-    max-width: 70%;
+.imgJohns {
+  max-width: 50%;
+}
+.imgWorld {
+  max-width: 70%;
+}
+.links {
+  text-decoration: none;
+}
+.ourData {
+  
+}
+.warning {
+  background: #fedd4e;
+ 
+  padding: 20px;
 }

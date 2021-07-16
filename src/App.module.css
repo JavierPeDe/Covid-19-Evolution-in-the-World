@@ -26,5 +26,8 @@ html, body {
     right: 2rem !important;
 }
 .homeContaine{
-    height: 70px;
+    height: 140px;
+}
+.link{
+    text-decoration: none;
 }

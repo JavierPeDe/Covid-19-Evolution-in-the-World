@@ -22,7 +22,7 @@ import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import styles from './App.module.css';
-import { classes } from 'istanbul-lib-coverage';
+
 
 export const App = () => {
   const [dark, setDark] = useState(false);
@@ -48,12 +48,14 @@ export const App = () => {
               <List
                 style={{
                   display: 'flex',
-                  justifyContent: 'space-around',
+                  flexFlow: 'row wrap',
+                  justifyContent: 'space-between',
                   alignItems: 'center',
-                  textDecoration: 'none',
+                  
                 }}
               >
-                <Link to="/" className={classes.link}>
+                <div style={{display: 'flex',flexFlow: 'row wrap', minWidth:'20%'}}>
+                <Link to="/" className={styles.link}>
                   <ListItem button>
                     <ListItemIcon>
                       <AssessmentOutlinedIcon />
@@ -61,7 +63,7 @@ export const App = () => {
                     <ListItemText primary={'Home'} />
                   </ListItem>
                 </Link>
-                <Link to="/about" className={classes.link}>
+                <Link to="/about" className={styles.link}>
                   <ListItem button>
                     <ListItemIcon>
                       <InfoOutlinedIcon />
@@ -75,15 +77,20 @@ export const App = () => {
                   target="_blank"
                   rel="noreferrer"
                   href="https://github.com/JavierPeDe/Covid-19-Evolution-in-the-World"
+                  style={{width: '30%'}}
                 >
                   <ListItemIcon>
                     <GitHubIcon />
                   </ListItemIcon>
                   <ListItemText primary={'Github'} />
                 </ListItem>
+                </div>
+                <div>
                 <ListItem>
                   <h3 style={{ margin: '0' }}>Evolution of Covid-19</h3>
                 </ListItem>
+                </div>
+                <div style={{width:'20%', textAlign:'right'}}>
                 <ListItem>
                   <Switch
                     checked={dark}
@@ -91,6 +98,7 @@ export const App = () => {
                     onChange={() => setDark(!dark)}
                   />
                 </ListItem>
+                </div>
               </List>
             </Drawer>
 
@@ -102,6 +110,7 @@ export const App = () => {
               <Home />
             </Route>
             <Route exact path="/about">
+              <div className={styles.homeContaine}> </div>
               <Info />
             </Route>
           </Paper>
