@@ -1,14 +1,20 @@
-
-
 .containerSources{
+
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: flex-start;
 }
+
 .imgJohns{
     max-width: 50%;
 }
+
 .imgWorld{
     max-width: 70%;
+}
+
+.darkMode {
+    position: absolute !important;
+    right: 2rem !important;
 }
