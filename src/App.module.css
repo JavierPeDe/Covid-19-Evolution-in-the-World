@@ -25,5 +25,9 @@ html, body {
     position: absolute !important;
     right: 2rem !important;
 }
-
-
+.homeContaine{
+    height: 140px;
+}
+.link{
+    text-decoration: none;
+}

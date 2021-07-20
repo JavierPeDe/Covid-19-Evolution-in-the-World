@@ -2,10 +2,10 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
 }
 .graphic {
   max-height: 800px;
   width: 100%;
-  max-width: 900px;
+  max-width: 800px;
 }
