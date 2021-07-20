@@ -14,6 +14,8 @@ html, body {
 
 .main {
     text-align: center;
+    height: 100%;
+    
 }
 
 .mainTitle {
@@ -23,11 +25,12 @@ html, body {
 
 .darkMode {
     position: absolute !important;
-    right: 2rem !important;
+    left: 70rem !important;
 }
-.homeContaine{
-    height: 140px;
+.homeContainer{
+    height: 1.8rem;
 }
 .link{
     text-decoration: none;
+    color: #fff;
 }

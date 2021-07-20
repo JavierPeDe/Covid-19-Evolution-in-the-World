@@ -6,7 +6,8 @@ import {
   Paper,
   Switch,
   Typography,
-  Drawer,
+  AppBar,
+  Toolbar,
   List,
   ListItem,
   ListItemIcon,
@@ -38,79 +39,68 @@ export const App = () => {
       <div className={styles.main}>
         <ThemeProvider theme={theme}>
           <Paper>
-            <Drawer
-              style={{ width: ' 70px' }}
-              variant="persistent"
-              anchor="top"
-              open={true}
-              classes={{ paper: theme.MuiDrawer }}
-            >
-              <List
-                style={{
-                  display: 'flex',
-                  flexFlow: 'row wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  
-                }}
-              >
-                <div style={{display: 'flex',flexFlow: 'row wrap', minWidth:'20%'}}>
-                <Link to="/" className={styles.link}>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <AssessmentOutlinedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'Home'} />
-                  </ListItem>
-                </Link>
-                <Link to="/about" className={styles.link}>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <InfoOutlinedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'About'} />
-                  </ListItem>
-                </Link>
-                <ListItem
-                  button
-                  component="a"
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/JavierPeDe/Covid-19-Evolution-in-the-World"
-                  style={{width: '30%'}}
+            <AppBar position="static" color="secondary">
+              <Toolbar>
+                <List
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    flexDirection: "row"
+                  }}
                 >
-                  <ListItemIcon>
-                    <GitHubIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={'Github'} />
-                </ListItem>
-                </div>
-                <div>
-                <ListItem>
-                  <h3 style={{ margin: '0' }}>Evolution of Covid-19</h3>
-                </ListItem>
-                </div>
-                <div style={{width:'20%', textAlign:'right'}}>
-                <ListItem>
+
+                  <Link to="/" className={styles.link}>
+                    <ListItem button>
+                      <ListItemIcon>
+                        <AssessmentOutlinedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={'Home'} />
+                    </ListItem>
+                  </Link>
+                  <Link to="/about" className={styles.link}>
+                    <ListItem button>
+                      <ListItemIcon>
+                        <InfoOutlinedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={'About'} />
+                    </ListItem>
+                  </Link>
+                  <ListItem
+                    button
+                    component="a"
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://github.com/JavierPeDe/Covid-19-Evolution-in-the-World"
+                    style={{ width: '30%' }}
+                  >
+                    <ListItemIcon>
+                      <GitHubIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Github'} />
+                  </ListItem>
+
+
                   <Switch
-                    checked={dark}
                     className={styles.darkMode}
+                    checked={dark}
+                    color="info"
                     onChange={() => setDark(!dark)}
                   />
-                </ListItem>
-                </div>
-              </List>
-            </Drawer>
+
+                </List>
+              </Toolbar>
+            </AppBar>
 
             {/* <Typography className={styles.mainTitle} variant="h1">
               Covid 19
             </Typography> */}
             <Route exact path="/">
-              <div className={styles.homeContaine}> </div>
+              <div className={styles.homeContainer}> </div>
               <Home />
             </Route>
             <Route exact path="/about">
-              <div className={styles.homeContaine}> </div>
+              <div className={styles.homeContainer}> </div>
               <Info />
             </Route>
           </Paper>

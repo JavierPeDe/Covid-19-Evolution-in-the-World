@@ -17,8 +17,8 @@ export const CountryPicker = ({ handleInputChange }) => {
             })
     }, [setCountries])
     return (
-        <div>
-            <div className="">
+        <div className={styles.fix}>
+            <div>
                 <select name="countries" className={styles.selector} onChange={(e) => {
                     handleInputChange(e)
                 }}>
