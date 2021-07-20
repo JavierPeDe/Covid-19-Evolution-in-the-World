@@ -1,9 +1,10 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import styles from "./selector.module.css";
 import axios from 'axios';
 
 
 
-export const CountryPicker = ({handleInputChange}) => {
+export const CountryPicker = ({ handleInputChange }) => {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
@@ -16,12 +17,12 @@ export const CountryPicker = ({handleInputChange}) => {
             })
     }, [setCountries])
     return (
-        <div>
-            <div className="">
-                <select name="countries" style={{ width: "200px" }} onChange={(e) => {
+        <div className={styles.fix}>
+            <div>
+                <select name="countries" className={styles.selector} onChange={(e) => {
                     handleInputChange(e)
                 }}>
-                     <option hidden selected disabled value='ES'>Spain</option>
+                    <option hidden selected disabled value='ES'>Spain</option>
                     {countries.map((country, i) => (
                         <option key={i} value={country.code}>{country.name}</option>
                     ))}
