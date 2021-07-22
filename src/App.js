@@ -5,7 +5,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {
   Paper,
   Switch,
-  Typography,
   AppBar,
   Toolbar,
   List,
@@ -15,7 +14,6 @@ import {
 } from '@material-ui/core';
 import {
   BrowserRouter as Router,
-  Switch as SwitchRouter,
   Route,
   Link,
 } from 'react-router-dom';
@@ -84,7 +82,7 @@ export const App = () => {
                   <Switch
                     className={styles.darkMode}
                     checked={dark}
-                    color="info"
+                    color="default"
                     onChange={() => setDark(!dark)}
                   />
 

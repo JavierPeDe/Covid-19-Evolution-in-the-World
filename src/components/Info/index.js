@@ -1,117 +1,34 @@
-import { Container, StylesProvider } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import style from './index.module.css';
-import johnsImg from '../../assets/img/JohnsLogo.png';
-import woldImg from '../../assets/img/WorldLogo.svg';
+import { info } from "./SourceInfo/index";
+import { SourceInfo } from "./SourceInfo/SourceInfo";
 import WarningIcon from '@material-ui/icons/Warning';
 
 export const Info = () => {
   return (
-    <div className={style.infoContainer}>
-      <h1>Covid-19 Evolution </h1>
-      <h2>
-        Covid-19 information from trusted sources via API <i>about-corona</i>
-      </h2>
-      <div className={style.ourData}>
-        <h1>Our Data Sources</h1>
-        <div className={style.containerSources} background="primary">
-          <div>
-            <h3>World Health Organization Situation Reports</h3>
-            <p>
-              source: <br />
-              <a
-                className={style.links}
-                href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Who Situation Reports
-              </a>
-            </p>
-            <img
-              className={style.imgWorld}
-              src={woldImg}
-              alt="World Health Organization"
-            />
-          </div>
-          <div>
-            <h3>Johns Hopkins CSSE</h3>
-            <p>
-              source: <br />
-              <a
-                className={style.links}
-                href="https://github.com/CSSEGISandData/COVID-19"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Data Repository by Johns Hopkins CSSE
-              </a>{' '}
-            </p>
-            <img
-              className={style.imgJohns}
-              src={johnsImg}
-              alt="ohns Hopkins CSSE"
-            />
-          </div>
-          <div>
-            <h3>Various governmental sources</h3>
-            <p>
-              source:
-              <br />
-              <a
-                className={style.links}
-                href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases"
-                target="_blank"
-                rel="noreferrer"
-              >
-                European Centre for Disease Prevention and Control (ECDC)
-              </a>
-              <br />
-              <a
-                className={style.links}
-                href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                US CDC
-              </a>{' '}
-              <br />
-              <a
-                className={style.links}
-                href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml"
-                target="_blank"
-                rel="noreferrer"
-              >
-                National Health Commission of the People’s Republic of China
-                (NHC)
-              </a>{' '}
-              <br />
-              <a
-                className={style.links}
-                href="http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm"
-                target="_blank"
-                rel="noreferrer"
-              >
-                China CDC (CCDC)
-              </a>
-              <br />
-              <a
-                className={style.links}
-                href="https://ncov.dxy.cn/ncovh5/view/pneumonia"
-                target="_blank"
-                rel="noreferrer"
-              >
-                DXY.cn. Pneumonia. 2020{' '}
-              </a>
-            </p>
-          </div>
-        </div>
+    <div className={style.container}>
+      <div className={style.titleBox}>
+        <h1>Covid-19 Evolution </h1>
+        <h2>Covid-19 information from trusted sources via API <i>about-corona</i>
+        </h2>
       </div>
+      <div className={style.infoContainer}>
+        {info.map((data) => (<SourceInfo key={data.key} title={data.title} source={data.source} source2={data.source2} source3={data.source3} link={data.link} link2={data.link2} link3={data.link3} />))
+        }
+      </div>
+
       <div className={style.warning}>
-        <Container >
+        <Grid container alignItems="center" justify="center" >
+          <Grid item>
+            <WarningIcon fontSize="large" style={{ paddingRight: "5px" }} />
+          </Grid>
+          <Grid item>
+            <h2>Warning!</h2>
+          </Grid>
+        </Grid>
         <p>
-          <WarningIcon />
-          Warning: the data provided and used for the generation of these
+          The data provided and used for the generation of these
           products comes from the aggregation of different sources, each of
           which with different update times and frequencies. Additionally, each
           country has its own accounting criteria, so comparisons of data
@@ -121,7 +38,6 @@ export const Info = () => {
           number of tests that are carried out.
         </p>
         <p>
-          <WarningIcon />
           The content of this website as well as data provided by related API's
           is aggregated from multiple sources and given without guarantee to be
           correct. All information provided on this website is given with the
@@ -129,8 +45,8 @@ export const Info = () => {
           the website operators be held liable for any claim, damages or other
           liabilities.
         </p>
-        </Container>
       </div>
-    </div>
+
+    </div >
   );
 };
