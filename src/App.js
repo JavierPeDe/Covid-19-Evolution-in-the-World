@@ -5,7 +5,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {
   Paper,
   Switch,
-  Typography,
   AppBar,
   Toolbar,
   List,
@@ -16,7 +15,6 @@ import {
 } from '@material-ui/core';
 import {
   BrowserRouter as Router,
-  Switch as SwitchRouter,
   Route,
   Link,
 } from 'react-router-dom';
