@@ -12,6 +12,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Hidden,
 } from '@material-ui/core';
 import {
   BrowserRouter as Router,
@@ -23,7 +24,6 @@ import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import styles from './App.module.css';
-
 
 export const App = () => {
   const [dark, setDark] = useState(false);
@@ -41,66 +41,62 @@ export const App = () => {
           <Paper>
             <AppBar position="static" color="secondary">
               <Toolbar>
-                <List
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    flexDirection: "row"
-                  }}
-                >
+                <List className={styles.navbarList}>
+                  <div className={styles.iconList}>
+                    <Link to="/" className={styles.link}>
+                      <ListItem button>
+                        <ListItemIcon>
+                          <AssessmentOutlinedIcon />
+                        </ListItemIcon>
 
-                  <Link to="/" className={styles.link}>
-                    <ListItem button>
+                        <Hidden smDown>
+                          <ListItemText primary={'Home'} />
+                        </Hidden>
+                      </ListItem>
+                    </Link>
+                    <Link to="/about" className={styles.link}>
+                      <ListItem button>
+                        <ListItemIcon>
+                          <InfoOutlinedIcon />
+                        </ListItemIcon>
+                        <Hidden smDown>
+                          <ListItemText primary={'About'} />
+                        </Hidden>
+                      </ListItem>
+                    </Link>
+                    <ListItem
+                      button
+                      component="a"
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://github.com/JavierPeDe/Covid-19-Evolution-in-the-World"
+                      style={{ width: '30%' }}
+                    >
                       <ListItemIcon>
-                        <AssessmentOutlinedIcon />
+                        <GitHubIcon />
                       </ListItemIcon>
-                      <ListItemText primary={'Home'} />
+                      <Hidden smDown>
+                        <ListItemText primary={'Github'} />
+                      </Hidden>
                     </ListItem>
-                  </Link>
-                  <Link to="/about" className={styles.link}>
-                    <ListItem button>
-                      <ListItemIcon>
-                        <InfoOutlinedIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={'About'} />
-                    </ListItem>
-                  </Link>
-                  <ListItem
-                    button
-                    component="a"
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://github.com/JavierPeDe/Covid-19-Evolution-in-the-World"
-                    style={{ width: '30%' }}
-                  >
-                    <ListItemIcon>
-                      <GitHubIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={'Github'} />
-                  </ListItem>
-
-
-                  <Switch
-                    className={styles.darkMode}
-                    checked={dark}
-                    color="info"
-                    onChange={() => setDark(!dark)}
-                  />
-
+                  </div>
+                  <div>
+                    <Switch
+                      className={styles.darkMode}
+                      checked={dark}
+                      color="info"
+                      onChange={() => setDark(!dark)}
+                    />
+                  </div>
                 </List>
               </Toolbar>
             </AppBar>
 
-            {/* <Typography className={styles.mainTitle} variant="h1">
-              Covid 19
-            </Typography> */}
             <Route exact path="/">
               <div className={styles.homeContainer}> </div>
               <Home />
             </Route>
             <Route exact path="/about">
-              <div className={styles.homeContainer}> </div>
               <Info />
             </Route>
           </Paper>
