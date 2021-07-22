@@ -5,7 +5,6 @@ import Modal from '@material-ui/core/Modal';
 import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 import style from './index.module.css';
 
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
@@ -16,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     top: '0',
-    left:'10%',
+    left: '10%',
   },
 }));
 
 export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
   const classes = useStyles();
-  
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -37,8 +36,8 @@ export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
       {
         label: `Infected`,
         data: infected,
-        backgroundColor: 'rgba(216,58,86,0.2)',
-        borderColor: 'rgba(216,58,86,1)',
+        backgroundColor: 'rgba(255, 209, 102, 1)',
+        borderColor: 'rgba(255, 209, 102, 1)',
         borderWidth: 1,
         fill: '2',
         pointRadius: 0,
@@ -46,8 +45,8 @@ export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
       {
         label: `Deaths`,
         data: deaths,
-        backgroundColor: 'rgba(91,86,86,0.2)',
-        borderColor: 'rgba(91,86,86,1)',
+        backgroundColor: 'rgba(239, 71, 111, 1)',
+        borderColor: 'rgba(239, 71, 111, 1)',
         pointRadius: 0,
 
         borderWidth: 1,
@@ -56,8 +55,8 @@ export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
       {
         label: `Recovered`,
         data: recovered,
-        backgroundColor: 'rgba(74,169,108,0.2)',
-        borderColor: 'rgba(74,169,108,1)',
+        backgroundColor: 'rgba(6, 214, 160, 1)',
+        borderColor: 'rgba(6, 214, 160, 1)',
         borderWidth: 1,
         fill: '1',
         pointRadius: 0,
@@ -74,7 +73,11 @@ export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
 
   return (
     <div className={style.container}>
-      <AspectRatioIcon className={style.iconStyle} type="button" onClick={handleOpen} />
+      <AspectRatioIcon
+        className={style.iconStyle}
+        type="button"
+        onClick={handleOpen}
+      />
       <Line data={data} options={lineOptions} height={400} width={600} />
       <p>{`Source: ${source}`}</p>
       <Modal
@@ -83,7 +86,7 @@ export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        <div  className={classes.paper}>
+        <div className={classes.paper}>
           <Line data={data} options={lineOptions} height={'400'} width={600} />
         </div>
       </Modal>
