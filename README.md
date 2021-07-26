@@ -28,7 +28,7 @@ npm install react-router-dom
 ```
 npm install --save react-chartjs-2 chart.js
 ```
-Install every thing together:
+Install every stack together:
 ```
 npm install
 ```
