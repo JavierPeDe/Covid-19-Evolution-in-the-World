@@ -64,6 +64,9 @@ export const LineChart = ({ infected, deaths, recovered, dates, source }) => {
     ],
   };
   const lineOptions = {
+    plugins: {
+      legend: {},
+    },
     scales: {
       y: {
         beginAtZero: true,

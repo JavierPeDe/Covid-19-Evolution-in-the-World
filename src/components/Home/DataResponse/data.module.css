@@ -1,50 +1,50 @@
 .box {
-    margin: 30px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid1 {
-    margin: 2% 0 !important;
+  margin: 2% 0 !important;
 }
 
 .box1 {
-    width: 100%;
-    max-width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .colorGreen {
-    color: #4aa96c;
-    transition: color 0.3s ease-in;
+  color: rgba(6, 214, 160, 1);
+  transition: color 0.3s ease-in;
 }
 
 .colorRed {
-    color: #D83A56;
-    transition: color 0.3s ease-in;
+  color: rgba(255, 209, 102, 1);
+  transition: color 0.3s ease-in;
 }
 
 .colorBlack {
-    color: #5B5656;
-    transition: color 0.3s ease-in;
+  color: rgba(239, 71, 111, 1);
+  transition: color 0.3s ease-in;
 }
 
-.colorGreen:hover{
-    color: #1E6F5C;
+.colorGreen:hover {
+  color: #1e6f5c;
 }
 
 .colorRed:hover {
-    color: #8F1537;
+  color: #d89216;
 }
 
 .colorBlack:hover {
- color: #000;
+  color: #7d0633;
 }
 
 .formControl {
-    width: 100px;
+  width: 100px;
 }
 
 .formGroup {
-    width: 100px;
+  width: 100px;
 }

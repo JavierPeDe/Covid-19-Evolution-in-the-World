@@ -1,7 +1,7 @@
 .container {
- display: flex;
- flex-direction: column;
- min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .titleBox {
@@ -21,25 +21,24 @@
   justify-content: center !important;
   align-items: center !important;
   padding-bottom: 8rem;
-} 
+}
 
 .mainGrid {
-  box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .contentBox {
   padding: 1rem 2rem 2rem 2rem;
+  min-height: 200px;
 }
 
 .links {
   text-decoration: none;
   cursor: pointer;
+  color: grey;
 }
 
 .links:hover {
@@ -51,18 +50,20 @@
   border-radius: 3% 3% 0 0;
   padding: 1rem 6rem;
   margin-top: auto;
+  color: black;
 }
 
 .warning p {
   text-align: justify;
   line-height: 1.8;
+  color: black;
 }
 
-@media screen and (max-width:880px){
-  .infoContainer{
-      display: flex;
-      flex-direction: column !important;
-      padding: 3rem;
+@media screen and (max-width: 960px) {
+  .infoContainer {
+    display: flex;
+    flex-direction: column !important;
+    padding: 3rem;
   }
 
   .titleBox {
@@ -74,6 +75,6 @@
   }
 
   .contentBox {
-    border: 1px solid #DDDDDD;
+    border: 1px solid #dddddd;
   }
 }

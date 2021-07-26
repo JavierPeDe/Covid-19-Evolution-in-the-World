@@ -20,4 +20,5 @@ export const info = [
         link: " European Centre for Disease Prevention and Control (ECDC)",
         link2: "US CDC",
     }
+    
 ]

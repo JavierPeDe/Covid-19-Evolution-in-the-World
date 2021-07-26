@@ -13,11 +13,7 @@ import {
   ListItemText,
   Hidden,
 } from '@material-ui/core';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import GitHubIcon from '@material-ui/icons/GitHub';
