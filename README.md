@@ -28,6 +28,10 @@ npm install react-router-dom
 ```
 npm install --save react-chartjs-2 chart.js
 ```
+Install every thing together:
+```
+npm install
+```
 
 ## Usage
 You use the country selector to pick your desired country. The data is automatically displayed in your screen.
