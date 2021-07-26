@@ -34,7 +34,7 @@ npm install
 ```
 
 ## Usage
-You use the country selector to pick your desired country. The data is automatically displayed in your screen.
+Use the country selector to pick your desired country. The data is automatically displayed in your screen.
 
 <img width="946" alt="Chart" src="https://user-images.githubusercontent.com/69805199/127020045-7db2437b-6d7d-4bea-9a05-49af0435f1ed.PNG">
 
