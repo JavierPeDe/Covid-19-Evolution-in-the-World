@@ -1,13 +1,12 @@
- .selector {
-    width: 400px;
-    border: solid 1px;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    outline: none;
+.selector {
+  width: 400px;
+  border: solid 1px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
 }
 
 .fix {
-    height: calc(100% - 100px);
+  height: calc(100% - 100px);
 }
-

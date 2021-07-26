@@ -1,11 +1,13 @@
 .container{
     margin: 20px;
     position: relative;
+    
+   
 }
 .iconStyle{
     
     position:absolute;
-    top:0;
+    top:-12px;
     right:0;
     cursor: pointer;
 }
